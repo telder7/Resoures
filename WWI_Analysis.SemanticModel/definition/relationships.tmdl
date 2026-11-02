@@ -1,0 +1,8 @@
+relationship d332d228-853e-2f9b-0fc8-66ba4224cbe3
+	fromColumn: Sale.'Invoice Date Key'
+	toColumn: Date.Date
+
+relationship 589b0335-e6d7-cd80-f526-224b1e5f7ea9
+	fromColumn: Sale.'Salesperson Key'
+	toColumn: SalesPerson.'Employee Key'
+

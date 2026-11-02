@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "617f83ea9cf9b6bd1f28",
+  "position": {
+    "x": 12,
+    "y": 33,
+    "z": 13000,
+    "height": 32,
+    "width": 306,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "WWI-PBI",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#605e5c"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

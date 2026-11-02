@@ -1,0 +1,32 @@
+expression FilePath = "d:\AdvFabric\Resources\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: dfbcee6f-0ae2-43e3-8e39-a4b3c99ea298
+	queryGroup: Parameter
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression DateTable = "DimDate.csv" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: da528ed4-575e-4127-8ded-bcd26d984aea
+	queryGroup: Parameter
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression SalesTable = "FactSale.csv" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f7a84009-b778-439d-829e-b2a3c77fc5d3
+	queryGroup: Parameter
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression SalesPersonTable = "DimEmployee.csv" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 739ec36a-313c-473d-aee0-c17838f18023
+	queryGroup: Parameter
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

@@ -1,0 +1,96 @@
+table SalesPerson
+	lineageTag: dc3c77a3-4b46-4b30-b11d-23dd6c807291
+
+	column 'Employee Key'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e6b7661-e09d-4922-b6b1-f9e4c0ab2c20
+		summarizeBy: none
+		sourceColumn: Employee Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WWI Employee ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: e2f0938c-ebc5-469b-9d95-37614386e1c6
+		summarizeBy: none
+		sourceColumn: WWI Employee ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employee
+		dataType: string
+		lineageTag: 21da82e3-5a65-4dea-8799-3c54a5cdf48f
+		summarizeBy: none
+		sourceColumn: Employee
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Preferred Name'
+		dataType: string
+		lineageTag: 45a4204d-6787-49f4-ac7d-4dfeeae77d54
+		summarizeBy: none
+		sourceColumn: Preferred Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Salesperson'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7af0c8b9-9024-4d15-b3dd-8c4d95e091b9
+		summarizeBy: none
+		sourceColumn: Is Salesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column Photo
+		dataType: string
+		lineageTag: 1693ad38-11cc-4330-9321-adf508c47810
+		summarizeBy: none
+		sourceColumn: Photo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valid From'
+		dataType: string
+		lineageTag: 127dfa02-a8fd-405c-b49f-a5492d8a6212
+		summarizeBy: none
+		sourceColumn: Valid From
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valid To'
+		dataType: string
+		lineageTag: 4e90ce85-5636-49b9-8325-9a2ad741f00d
+		summarizeBy: none
+		sourceColumn: Valid To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lineage Key'
+		dataType: int64
+		formatString: 0
+		lineageTag: d4ea46b0-55ba-4369-a8b8-a84aff583e2a
+		summarizeBy: none
+		sourceColumn: Lineage Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesPerson = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(FilePath&SalesPersonTable),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Employee Key", Int64.Type}, {"WWI Employee ID", Int64.Type}, {"Employee", type text}, {"Preferred Name", type text}, {"Is Salesperson", Int64.Type}, {"Photo", type text}, {"Valid From", type text}, {"Valid To", type text}, {"Lineage Key", Int64.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Is Salesperson] = 1))
+				in
+				    #"Filtered Rows"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
