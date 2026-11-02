@@ -6,3 +6,8 @@ relationship 589b0335-e6d7-cd80-f526-224b1e5f7ea9
 	fromColumn: Sale.'Salesperson Key'
 	toColumn: SalesPerson.'Employee Key'
 
+relationship d6365c47-ffb1-405e-2ae9-f765602bae1f
+	isActive: false
+	fromColumn: Sale.'Delivery Date Key'
+	toColumn: Date.Date
+
